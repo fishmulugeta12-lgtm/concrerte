@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script async src="https://tally.so/widgets/embed.js"></script>
 <style>
 :root{
 --bg: #EDEAE3;
@@ -354,7 +355,7 @@ text-align:center; padding:8px 16px;
 <li><a href="#checker">Risk Checker</a></li>
 <li><a href="#faq">FAQ</a></li>
 </ul>
-<a href="#book" class="btn btn-primary nav-cta">Book Free Diagnostic</a>
+<a href="#" data-tally-open="2EyrMA" data-tally-emoji-text="👋" data-tally-emoji-animation="wave" class="btn btn-primary nav-cta">Book Free Diagnostic</a>
 <button class="mobile-toggle">Menu</button>
 </nav>
 </header>
@@ -366,7 +367,7 @@ text-align:center; padding:8px 16px;
 <h1>The last floor coating you'll ever need to <em>replace</em>.</h1>
 <p class="sub">Most epoxy failures trace back to one skipped step: nobody tested the slab. We diagnose before we quote, install to a written spec, and back it with a warranty that names exactly what's covered.</p>
 <div class="hero-ctas">
-<a href="#book" class="btn btn-primary">Book Your Free Slab Diagnostic</a>
+<a href="#" data-tally-open="2EyrMA" data-tally-emoji-text="👋" data-tally-emoji-animation="wave" class="btn btn-primary">Book Your Free Slab Diagnostic</a>
 <a href="#offer" class="btn btn-ghost">See What's Guaranteed</a>
 </div>
 <div class="trust-strip">
@@ -463,7 +464,7 @@ text-align:center; padding:8px 16px;
 </div>
 <div class="offer-total">
 <p>Diagnostic + Warranty + Year-One Inspection — bundled into every quoted price. If your floor fails from our work, we fix it in writing, not on a handshake.</p>
-<a href="#book" class="btn btn-dark" style="background:#fff; color:#221F1C;">Get My Quote</a>
+<a href="#" data-tally-open="2EyrMA" data-tally-emoji-text="👋" data-tally-emoji-animation="wave" class="btn btn-dark" style="background:#fff; color:#221F1C;">Get My Quote</a>
 </div>
 </div>
 </section>
@@ -624,12 +625,7 @@ text-align:center; padding:8px 16px;
 <div class="checker-result" id="checkerResult">
 <span class="risk-tag" id="riskTag">RISK LEVEL</span>
 <p id="riskCopy" style="color:var(--ink-soft); font-size:0.95rem;"></p>
-<button class="btn btn-primary" id="showLeadForm" style="margin-top:14px;">Email Me My Full Risk Report</button>
-<div class="lead-form" id="leadForm">
-<input type="text" placeholder="Name" aria-label="Name">
-<input type="email" placeholder="Email" aria-label="Email">
-<button class="btn btn-primary" id="submitLead" type="button">Send Report</button>
-</div>
+<a href="#" id="showLeadForm" data-tally-open="2EyrMA" data-tally-emoji-text="📋" data-tally-emoji-animation="tada" class="btn btn-primary" style="margin-top:14px;">Email Me My Full Risk Report</a>
 </div>
 </div>
 </div>
@@ -683,29 +679,8 @@ text-align:center; padding:8px 16px;
 </div>
 </div>
 <div class="booking-card">
-<div id="bookingFormWrap">
 <h4>Request a diagnostic visit</h4>
-<div class="field-row">
-<div class="field"><label>First Name</label><input type="text"></div>
-<div class="field"><label>Last Name</label><input type="text"></div>
-</div>
-<div class="field"><label>Phone</label><input type="tel"></div>
-<div class="field"><label>Property Address</label><input type="text"></div>
-<div class="field">
-<label>Project Type</label>
-<select>
-<option>Residential — Garage</option>
-<option>Residential — Basement / Interior</option>
-<option>Commercial / Industrial</option>
-</select>
-</div>
-<button class="btn btn-primary" id="bookSubmit" type="button">Request My Free Diagnostic</button>
-</div>
-<div class="confirm-msg" id="confirmMsg">
-<svg class="check" viewBox="0 0 24 24" fill="none" stroke="#354F4B" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg>
-<h4 style="margin-bottom:8px;">Request received.</h4>
-<p style="color:var(--ink-soft); font-size:0.92rem;">We'll call within one business day to schedule your diagnostic visit.</p>
-</div>
+<iframe data-tally-src="https://tally.so/embed/2EyrMA?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0" title="Request a diagnostic visit"></iframe>
 </div>
 </div>
 </section>
@@ -743,7 +718,7 @@ text-align:center; padding:8px 16px;
 </footer>
 
 <div class="mobile-cta">
-<a href="#book" class="btn btn-primary">Book Free Diagnostic</a>
+<a href="#" data-tally-open="2EyrMA" data-tally-emoji-text="👋" data-tally-emoji-animation="wave" class="btn btn-primary">Book Free Diagnostic</a>
 </div>
 
 <script>
@@ -819,19 +794,16 @@ copy.textContent = 'This combination of factors is exactly what causes peeling a
 result.classList.add('show');
 }
 
-document.getElementById('showLeadForm').addEventListener('click', function(){
-document.getElementById('leadForm').classList.add('show');
-this.style.display = 'none';
+// Pass the visitor's risk answers into the Tally form as hidden context (optional, visible to you as the business owner in submissions)
+document.getElementById('showLeadForm').addEventListener('click', function(e){
+e.preventDefault();
+var riskLevel = document.getElementById('riskTag') ? document.getElementById('riskTag').textContent : '';
+if (window.Tally) {
+Tally.openPopup('2EyrMA', {
+emoji: { text: '📋', animation: 'tada' },
+hiddenFields: { risk_level: riskLevel }
 });
-
-document.getElementById('submitLead').addEventListener('click', function(){
-document.getElementById('leadForm').innerHTML = '<p style="font-size:0.9rem; color:var(--ink-soft);">Report on its way — check your inbox shortly.</p>';
-});
-
-// Booking form mock submit
-document.getElementById('bookSubmit').addEventListener('click', function(){
-document.getElementById('bookingFormWrap').style.display = 'none';
-document.getElementById('confirmMsg').classList.add('show');
+}
 });
 </script>
 </body>
