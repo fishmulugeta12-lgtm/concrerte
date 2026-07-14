@@ -331,6 +331,69 @@ background:var(--dark-bg); padding:12px 16px; display:flex; gap:10px; box-shadow
 background:#9A4530; color:#fff; font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.04em;
 text-align:center; padding:8px 16px;
 }
+
+/* --- NEW IMAGE PLACEHOLDER STYLES --- */
+.process-img-placeholder {
+    width: 100%;
+    height: 220px;
+    background: rgba(0,0,0,0.03);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    margin-top: 18px;
+    text-align: center;
+    border: 1px dashed var(--ink-faint);
+}
+
+.b-a-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 56px;
+}
+@media(max-width: 760px) { .b-a-grid { grid-template-columns: 1fr; } }
+.b-a-card {
+    background: var(--dark-line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+}
+.b-a-img {
+    height: 280px;
+    background: #1A1815;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #C7BFA9;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 20px;
+    border: 1px dashed #5B564D;
+}
+.b-a-label {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: var(--amber);
+    color: #fff;
+    padding: 4px 10px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: var(--radius);
+    z-index: 2;
+}
+.b-a-caption {
+    padding: 20px;
+    font-size: 0.95rem;
+    color: #EDEAE3;
+}
 </style>
 </head>
 <body>
@@ -491,7 +554,13 @@ text-align:center; padding:8px 16px;
 </div>
 <div class="process-row">
 <div class="p-num">03</div>
-<div><h4>Surface Prep &amp; Grind</h4><p>Diamond-grinding to the specified concrete surface profile (CSP). This step is what most underbid jobs skip.</p></div>
+<div>
+    <h4>Surface Prep &amp; Grind</h4>
+    <p>Diamond-grinding to the specified concrete surface profile (CSP). This step is what most underbid jobs skip.</p>
+    <div class="process-img-placeholder">
+        [INSERT IMAGE/VIDEO HERE: Heavy-Duty Planetary Diamond Grinder in Action]
+    </div>
+</div>
 <div class="p-time">HALF TO FULL DAY</div>
 </div>
 <div class="process-row">
@@ -522,6 +591,24 @@ text-align:center; padding:8px 16px;
 <div class="stat"><b>[X.X / 5]</b><span>AVG RATING, [XXX] REVIEWS — CLIENT DATA</span></div>
 <div class="stat"><b>15 YR</b><span>LONGEST STANDING WARRANTY TERM</span></div>
 </div>
+
+<div class="b-a-grid">
+    <div class="b-a-card">
+        <div class="b-a-label">The Prep</div>
+        <div class="b-a-img">
+            [INSERT IMAGE HERE: Close-up of ASTM Moisture Test & Grinded Slab]
+        </div>
+        <div class="b-a-caption">Untested slabs are why floors fail. We diagnose and diamond-grind before any coating is poured.</div>
+    </div>
+    <div class="b-a-card">
+        <div class="b-a-label">The Result</div>
+        <div class="b-a-img">
+            [INSERT IMAGE HERE: Finished High-Gloss Flake or Metallic Floor]
+        </div>
+        <div class="b-a-caption">A permanently bonded system engineered for hot-tire resistance and heavy chemical traffic.</div>
+    </div>
+</div>
+
 <div class="swatch-grid">
 <div class="swatch sw1"><span>Residential Garage — Flake System</span></div>
 <div class="swatch sw2"><span>Commercial Warehouse — Solid Color</span></div>
