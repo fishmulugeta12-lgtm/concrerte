@@ -331,24 +331,6 @@ background:var(--dark-bg); padding:12px 16px; display:flex; gap:10px; box-shadow
 background:#9A4530; color:#fff; font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.04em;
 text-align:center; padding:8px 16px;
 }
-
-/* --- NEW IMAGE PLACEHOLDER STYLES --- */
-.process-img-placeholder {
-    width: 100%;
-    height: 220px;
-    background: rgba(0,0,0,0.03);
-    border-radius: var(--radius);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: var(--ink-soft);
-    margin-top: 18px;
-    text-align: center;
-    border: 1px dashed var(--ink-faint);
-}
-
 .b-a-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -364,17 +346,10 @@ text-align:center; padding:8px 16px;
 }
 .b-a-img {
     height: 280px;
-    background: #1A1815;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #C7BFA9;
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    text-align: center;
-    padding: 20px;
-    border: 1px dashed #5B564D;
+    display: block;
+    position: relative;
 }
+.b-a-img svg{width:100%; height:100%; display:block;}
 .b-a-label {
     position: absolute;
     top: 14px;
@@ -393,6 +368,21 @@ text-align:center; padding:8px 16px;
     padding: 20px;
     font-size: 0.95rem;
     color: #EDEAE3;
+}
+.process-img-placeholder {
+    width: 100%;
+    height: 220px;
+    background: rgba(0,0,0,0.03);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    margin-top: 18px;
+    text-align: center;
+    border: 1px dashed var(--ink-faint);
 }
 </style>
 </head>
@@ -596,14 +586,66 @@ text-align:center; padding:8px 16px;
     <div class="b-a-card">
         <div class="b-a-label">The Prep</div>
         <div class="b-a-img">
-            [INSERT IMAGE HERE: Close-up of ASTM Moisture Test & Grinded Slab]
+        <svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <defs>
+        <linearGradient id="beforeBg" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#8B8577"/>
+        <stop offset="100%" stop-color="#5B564D"/>
+        </linearGradient>
+        <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.05 0"/></filter>
+        </defs>
+        <rect width="400" height="280" fill="url(#beforeBg)"/>
+        <rect width="400" height="280" filter="url(#grain)"/>
+        <path d="M40 60 L120 90 L95 150 L180 130 L160 210 L260 180" stroke="#221F1C" stroke-width="2" fill="none" opacity="0.55"/>
+        <path d="M250 40 L300 100 L270 160 L340 190 L320 250" stroke="#221F1C" stroke-width="2" fill="none" opacity="0.45"/>
+        <ellipse cx="300" cy="90" rx="46" ry="20" fill="#3E4C48" opacity="0.35"/>
+        <ellipse cx="90" cy="210" rx="60" ry="22" fill="#7E5A2C" opacity="0.3"/>
+        <g font-family="IBM Plex Mono" font-size="11" fill="#EDEAE3" opacity="0.85">
+        <text x="18" y="26">CRACKING — UNTESTED SLAB</text>
+        </g>
+        </svg>
         </div>
         <div class="b-a-caption">Untested slabs are why floors fail. We diagnose and diamond-grind before any coating is poured.</div>
     </div>
     <div class="b-a-card">
         <div class="b-a-label">The Result</div>
         <div class="b-a-img">
-            [INSERT IMAGE HERE: Finished High-Gloss Flake or Metallic Floor]
+        <svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <defs>
+        <linearGradient id="afterBg" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#354F4B"/>
+        <stop offset="55%" stop-color="#263835"/>
+        <stop offset="100%" stop-color="#1A2624"/>
+        </linearGradient>
+        <linearGradient id="gloss" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#EDEAE3" stop-opacity="0.35"/>
+        <stop offset="35%" stop-color="#EDEAE3" stop-opacity="0.04"/>
+        <stop offset="100%" stop-color="#EDEAE3" stop-opacity="0"/>
+        </linearGradient>
+        </defs>
+        <rect width="400" height="280" fill="url(#afterBg)"/>
+        <g opacity="0.9">
+        <circle cx="46" cy="40" r="3" fill="#D6A868"/>
+        <circle cx="120" cy="70" r="2.4" fill="#EDEAE3"/>
+        <circle cx="200" cy="35" r="3.2" fill="#A9793D"/>
+        <circle cx="270" cy="90" r="2" fill="#EDEAE3"/>
+        <circle cx="340" cy="50" r="3" fill="#D6A868"/>
+        <circle cx="80" cy="140" r="2.6" fill="#A9793D"/>
+        <circle cx="160" cy="160" r="2" fill="#EDEAE3"/>
+        <circle cx="230" cy="130" r="3.4" fill="#D6A868"/>
+        <circle cx="310" cy="170" r="2.4" fill="#EDEAE3"/>
+        <circle cx="60" cy="220" r="3" fill="#A9793D"/>
+        <circle cx="140" cy="235" r="2.2" fill="#EDEAE3"/>
+        <circle cx="220" cy="210" r="3" fill="#D6A868"/>
+        <circle cx="300" cy="240" r="2.6" fill="#A9793D"/>
+        <circle cx="360" cy="200" r="2" fill="#EDEAE3"/>
+        </g>
+        <rect width="400" height="280" fill="url(#gloss)"/>
+        <rect x="0" y="0" width="400" height="90" fill="#EDEAE3" opacity="0.05"/>
+        <g font-family="IBM Plex Mono" font-size="11" fill="#EDEAE3" opacity="0.85">
+        <text x="18" y="26">FLAKE SYSTEM — CURED &amp; SEALED</text>
+        </g>
+        </svg>
         </div>
         <div class="b-a-caption">A permanently bonded system engineered for hot-tire resistance and heavy chemical traffic.</div>
     </div>
@@ -809,7 +851,6 @@ text-align:center; padding:8px 16px;
 </div>
 
 <script>
-// Mobile menu toggle
 document.querySelector('.mobile-toggle').addEventListener('click', function(){
 var links = document.querySelector('nav .links');
 var visible = links.style.display === 'flex';
@@ -825,7 +866,6 @@ links.style.borderBottom = '1px solid var(--line)';
 links.style.gap = '18px';
 });
 
-// Close mobile menu after tapping a link (nav links now actually navigate)
 document.querySelectorAll('nav .links a').forEach(function(link){
 link.addEventListener('click', function(){
 var links = document.querySelector('nav .links');
@@ -833,7 +873,6 @@ if(window.innerWidth < 920){ links.style.display = 'none'; }
 });
 });
 
-// FAQ accordion
 document.querySelectorAll('.faq-item').forEach(function(item){
 item.querySelector('.faq-q').addEventListener('click', function(){
 var wasOpen = item.classList.contains('open');
@@ -842,7 +881,6 @@ if(!wasOpen) item.classList.add('open');
 });
 });
 
-// Risk checker
 var answers = {};
 document.querySelectorAll('.q-block').forEach(function(block){
 var qKey = block.getAttribute('data-q');
@@ -881,7 +919,6 @@ copy.textContent = 'This combination of factors is exactly what causes peeling a
 result.classList.add('show');
 }
 
-// Pass the visitor's risk answers into the Tally form as hidden context (optional, visible to you as the business owner in submissions)
 document.getElementById('showLeadForm').addEventListener('click', function(e){
 e.preventDefault();
 var riskLevel = document.getElementById('riskTag') ? document.getElementById('riskTag').textContent : '';
